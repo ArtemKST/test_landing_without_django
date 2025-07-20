@@ -523,47 +523,38 @@
      <script>
         const TOKEN = "8042136856:AAHqDwd0EisU8L8BTQA7ZF06ZOZl_j0K4eU"; // вставь сюда свой токен
         const CHAT_ID = "951313286"; // вставь сюда свой chat ID
-        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+        const URI_API = `/.netlify/functions/sendTelegram`;
     
          document.addEventListener('DOMContentLoaded', () => {
           const form = document.getElementById('tg-form');
-      
-          form.addEventListener('submit', async function(e) {
-            e.preventDefault();  // отменяем стандартное поведение
-      
-            // Собираем данные из полей
+    
+          form.addEventListener('submit', async e => {
+            e.preventDefault();
+    
             const data = new FormData(form);
             const name    = data.get('name').trim();
             const phone   = data.get('phone').trim();
             const email   = data.get('email').trim();
             const message = data.get('message').trim() || '—';
-      
-            // Формируем текст сообщения
-            const text = `
-      🔔 Новая заявка с сайта!
-      👤 Имя: ${name}
-      📞 Телефон: ${phone}
-      📧 Email: ${email}
-      💬 Комментарий: ${message}
-            `;
-      
+    
+            const payload = { name, phone, email, message };
+    
             try {
-              // Отправляем POST‑запрос в Telegram API
               const res = await fetch(URI_API, {
-                method: 'POST',
+                method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: CHAT_ID, text })
+                body:    JSON.stringify(payload)
               });
-      
+    
               if (res.ok) {
                 alert("✅ Заявка успешно отправлена!");
                 form.reset();
               } else {
-                console.error('Telegram API ответил ошибкой', await res.text());
+                console.error("Ошибка от функции:", await res.text());
                 alert("❌ Ошибка при отправке заявки");
               }
             } catch (err) {
-              console.error('Fetch error:', err);
+              console.error("Fetch error:", err);
               alert("❌ Ошибка соединения: " + err.message);
             }
           });
