@@ -15,6 +15,92 @@
       section {
         scroll-margin-top: 80px;
       }
+
+      /* ===== Tablet (<=1024px) ===== */
+      @media (max-width: 1024px) {
+        /* убираем большие боковые паддинги */
+        .px-40 {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+        header {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+        /* контент‑контейнер растягиваем под ширину экрана */
+        .max-w-\[960px\] {
+          max-width: 100% !important;
+        }
+        /* делаем меньше отступы в секциях */
+        .py-5 {
+          padding-top: 1rem !important;
+          padding-bottom: 1rem !important;
+        }
+        /* grid с курсами: 2 колонки */
+        .grid-cols-\[repeat\(auto-fit,minmax\(158px,1fr\)\)\] {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 0.75rem !important;
+        }
+        /* заголовки чуть меньше */
+        h1.text-4xl {
+          font-size: 2rem !important;
+        }
+        h2.text-\[22px\] {
+          font-size: 1.25rem !important;
+        }
+      }
+  
+      /* ===== Mobile (<=640px) ===== */
+      @media (max-width: 640px) {
+        /* делаем header столбиком */
+        header {
+          flex-direction: column !important;
+          align-items: center !important;
+          gap: 0.5rem !important;
+        }
+        /* меню в столбик */
+        header .flex.items-center.gap-9 {
+          flex-direction: column !important;
+          gap: 0.5rem !important;
+        }
+        /* основной контент убираем большие паддинги */
+        .px-40, .px-4 {
+          padding-left: 0.5rem !important;
+          padding-right: 0.5rem !important;
+        }
+        /* секция Hero: уменьшаем min-height */
+        .min-h-\[480px\] {
+          min-height: 300px !important;
+        }
+        /* заголовки ещё меньше */
+        h1.text-4xl {
+          font-size: 1.5rem !important;
+        }
+        h2.text-sm {
+          font-size: 0.875rem !important;
+        }
+        /* grid с курсами: 1 колонка */
+        .grid-cols-\[repeat\(auto-fit,minmax\(158px,1fr\)\)\] {
+          display: grid;
+          grid-template-columns: 1fr !important;
+          gap: 0.5rem !important;
+        }
+        /* тестимониалы: уменьшаем gap */
+        .flex.flex-col.gap-8 {
+          gap: 1rem !important;
+        }
+        /* форму делаем ещё компактнее */
+        #tg-form .max-w-\[480px\] {
+          max-width: 100% !important;
+        }
+        #tg-form input,
+        #tg-form textarea,
+        #tg-form button {
+          font-size: 0.875rem !important;
+          height: auto !important;
+        }
+      }
     </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
