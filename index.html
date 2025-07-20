@@ -457,7 +457,7 @@
                     <p class="text-[#161412] text-base font-normal leading-normal max-w-[720px">Please fill out the form below to get started.</p>
                   </div>
                 </div>
-                <form id="tg-form">
+                <form id="tg-form" method="post" action="#" novalidate>
                   <div class="flex flex-1 justify-center">
                     <div class="flex w-full max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
                       <label class="flex flex-col w-full space-y-2">
@@ -525,42 +525,50 @@
         const CHAT_ID = "951313286"; // вставь сюда свой chat ID
         const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
     
-        document.getElementById('tg-form').addEventListener('submit', function(e) {
-          e.preventDefault();
-    
-          const name = this.name.value;
-          const phone = this.phone.value;
-          const email = this.email.value;
-          const message = this.message.value;
-    
-          const text = `
-          🔔 Новая заявка с сайта!
-          👤 Имя: ${name}
-          📞 Телефон: ${phone}
-          📧 Email: ${email}
-          💬 Комментарий: ${message || '—'}
-          `;
-    
-          fetch(URI_API, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              chat_id: CHAT_ID,
-              text: text
-            })
-          })
-          .then(res => {
-            if (res.ok) {
-              alert("Заявка успешно отправлена!");
-              this.reset();
-            } else {
-              alert("Ошибка при отправке");
+         document.addEventListener('DOMContentLoaded', () => {
+          const form = document.getElementById('tg-form');
+      
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();  // отменяем стандартное поведение
+      
+            // Собираем данные из полей
+            const data = new FormData(form);
+            const name    = data.get('name').trim();
+            const phone   = data.get('phone').trim();
+            const email   = data.get('email').trim();
+            const message = data.get('message').trim() || '—';
+      
+            // Формируем текст сообщения
+            const text = `
+      🔔 Новая заявка с сайта!
+      👤 Имя: ${name}
+      📞 Телефон: ${phone}
+      📧 Email: ${email}
+      💬 Комментарий: ${message}
+            `;
+      
+            try {
+              // Отправляем POST‑запрос в Telegram API
+              const res = await fetch(URI_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text })
+              });
+      
+              if (res.ok) {
+                alert("✅ Заявка успешно отправлена!");
+                form.reset();
+              } else {
+                console.error('Telegram API ответил ошибкой', await res.text());
+                alert("❌ Ошибка при отправке заявки");
+              }
+            } catch (err) {
+              console.error('Fetch error:', err);
+              alert("❌ Ошибка соединения: " + err.message);
             }
-          })
-          .catch(err => {
-            alert("Ошибка соединения: " + err);
           });
         });
       </script>
+    
   </body>
 </html>
