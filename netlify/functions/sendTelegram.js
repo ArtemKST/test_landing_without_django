@@ -1,6 +1,5 @@
 // netlify/functions/sendTelegram.js
 
-const fetch = require('node-fetch');  // убедитесь, что эта зависимость доступна
 
 // Ваши Telegram‑данные
 const TOKEN   = "8042136856:AAHqDwd0EisU8L8BTQA7ZF06ZOZl_j0K4eU";
