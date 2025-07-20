@@ -520,5 +520,47 @@
         </footer>
       </div>
     </div>
+     <script>
+        const TOKEN = "8042136856:AAHqDwd0EisU8L8BTQA7ZF06ZOZl_j0K4eU"; // вставь сюда свой токен
+        const CHAT_ID = "951313286"; // вставь сюда свой chat ID
+        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+    
+        document.getElementById('tg-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+    
+          const name = this.name.value;
+          const phone = this.phone.value;
+          const email = this.email.value;
+          const message = this.message.value;
+    
+          const text = `
+          🔔 Новая заявка с сайта!
+          👤 Имя: ${name}
+          📞 Телефон: ${phone}
+          📧 Email: ${email}
+          💬 Комментарий: ${message || '—'}
+          `;
+    
+          fetch(URI_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: text
+            })
+          })
+          .then(res => {
+            if (res.ok) {
+              alert("Заявка успешно отправлена!");
+              this.reset();
+            } else {
+              alert("Ошибка при отправке");
+            }
+          })
+          .catch(err => {
+            alert("Ошибка соединения: " + err);
+          });
+        });
+      </script>
   </body>
 </html>
