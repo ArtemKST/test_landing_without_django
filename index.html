@@ -467,12 +467,24 @@
     
           form.addEventListener('submit', async e => {
             e.preventDefault();
+
+            // 🧠 Проверка через встроенную валидацию браузера
+            if (!form.checkValidity()) {
+              form.reportValidity(); // Показывает встроенные сообщения
+              return;
+            }
     
             const data = new FormData(form);
             const name    = data.get('name').trim();
             const phone   = data.get('phone').trim();
             const email   = data.get('email').trim();
             const message = data.get('message').trim() || '—';
+
+            // 🔒 Дополнительная ручная проверка
+            if (!name || !phone || !email) {
+              alert("⚠️ Пожалуйста, заполните имя, телефон и email.");
+              return;
+            }
     
             const payload = { name, phone, email, message };
     
