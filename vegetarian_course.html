@@ -1,0 +1,185 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>{{ title }}</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
+      style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(138,110,96)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: &quot;Plus Jakarta Sans&quot;, &quot;Noto Sans&quot;, sans-serif;"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="sticky top-0 z-50 bg-white shadow-sm flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3ebe7] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#1c120d]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path></svg>
+            </div>
+            <a href="{% url 'index' %}"><h2 class="text-[#1c120d] text-lg font-bold leading-tight tracking-[-0.015em]">Culinary Academy</h2></a>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#1c120d] text-sm font-medium leading-normal" href="{% url 'index' %}#courses">Courses</a>
+              <a class="text-[#1c120d] text-sm font-medium leading-normal" href="{% url 'index' %}#about">About</a>
+            </div>
+            <a
+               href="{% url 'index' %}#contact"
+               class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f15c17] text-[#fcf9f8] text-sm font-bold leading-normal tracking-[0.015em]"
+               >
+                Enroll Now
+            </a>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:px-4 @[480px]:py-3">
+                <div
+                  class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-white @[480px]:rounded-xl min-h-80"
+                  style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%), url({% static "landing/images/vegetarian_banner.png" %});'
+                >
+                  <div class="flex p-4"><p class="text-white tracking-light text-[28px] font-bold leading-tight">Vegetarian Cooking Course</p></div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Course Overview</h2>
+            <p class="text-[#181311] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Embark on a culinary journey into the world of vegetarian cooking. This course is designed for both beginners and experienced cooks looking to expand their repertoire
+              with delicious and nutritious vegetarian meals. Learn about the nutritional benefits of a plant-based diet, master essential cooking techniques, and explore a diverse
+              range of recipes from around the globe. From hearty stews to light salads, discover how to create satisfying and flavorful vegetarian dishes that are both healthy and
+              easy to prepare.
+            </p>
+            <h2 class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What You'll Learn</h2>
+            <div class="px-4">
+              <label class="flex gap-x-3 py-3 flex-row">
+                <input
+                  type="checkbox"
+                  class="h-5 w-5 rounded border-[#e6dedb] border-2 bg-transparent text-[#f15912] checked:bg-[#f15912] checked:border-[#f15912] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#e6dedb] focus:outline-none"
+                />
+                <p class="text-[#181311] text-base font-normal leading-normal">
+                  Master the fundamentals of Italian cooking, including pasta making, sauce preparation, and pizza dough crafting.
+                </p>
+              </label>
+              <label class="flex gap-x-3 py-3 flex-row">
+                <input
+                  type="checkbox"
+                  class="h-5 w-5 rounded border-[#e6dedb] border-2 bg-transparent text-[#f15912] checked:bg-[#f15912] checked:border-[#f15912] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#e6dedb] focus:outline-none"
+                />
+                <p class="text-[#181311] text-base font-normal leading-normal">
+                  Explore regional specialties from Northern to Southern Italy, learning about the unique flavors and ingredients of each area.
+                </p>
+              </label>
+              <label class="flex gap-x-3 py-3 flex-row">
+                <input
+                  type="checkbox"
+                  class="h-5 w-5 rounded border-[#e6dedb] border-2 bg-transparent text-[#f15912] checked:bg-[#f15912] checked:border-[#f15912] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#e6dedb] focus:outline-none"
+                />
+                <p class="text-[#181311] text-base font-normal leading-normal">
+                  Discover the secrets to creating authentic Italian dishes, from appetizers to desserts, with a focus on fresh, seasonal ingredients.
+                </p>
+              </label>
+              <label class="flex gap-x-3 py-3 flex-row">
+                <input
+                  type="checkbox"
+                  class="h-5 w-5 rounded border-[#e6dedb] border-2 bg-transparent text-[#f15912] checked:bg-[#f15912] checked:border-[#f15912] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#e6dedb] focus:outline-none"
+                />
+                <p class="text-[#181311] text-base font-normal leading-normal">
+                  Gain insights into Italian food culture, including wine pairings, dining etiquette, and the history behind iconic dishes.
+                </p>
+              </label>
+            </div>
+            <h2 class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Course Details</h2>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e6dedb] py-5">
+                <p class="text-[#8a6e60] text-sm font-normal leading-normal">Duration</p>
+                <p class="text-[#181311] text-sm font-normal leading-normal">8 Weeks</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e6dedb] py-5">
+                <p class="text-[#8a6e60] text-sm font-normal leading-normal">Skill Level</p>
+                <p class="text-[#181311] text-sm font-normal leading-normal">Intermediate to Advanced</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e6dedb] py-5">
+                <p class="text-[#8a6e60] text-sm font-normal leading-normal">Language</p>
+                <p class="text-[#181311] text-sm font-normal leading-normal">English</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#e6dedb] py-5">
+                <p class="text-[#8a6e60] text-sm font-normal leading-normal">Certification</p>
+                <p class="text-[#181311] text-sm font-normal leading-normal">Certificate of Completion</p>
+              </div>
+            </div>
+            <h2 class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Recipes Covered</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e6dedb] bg-white p-4 items-center">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA360ZjmpBq72UQ4NWYXvuJvCKLbixz7mb46sc__foUo03mGZQF9vlL6KqwSsPLoVYwzTiRsHcZivdbpK30WavV0XBtRTcQXMA6XpsbPmPFy2fqiozpcIO_nJdZDyIjAfV2GwTm_lfGbDFaIMwi3FTB9UNEs1PXqHVfwEnc61EsXByO4dATyhRV9IE1CsDFsc0JuhP1pG6sfluc2uYQE4c55SX5SEwXN3SXw1P5253fknJ-puFqxRwpA2BBzJT9H8CMQmR2nV20ylY");'
+                ></div>
+                <h2 class="text-[#181311] text-base font-bold leading-tight">Homemade Pasta with Pesto</h2>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e6dedb] bg-white p-4 items-center">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlUrjoXVLAsDjF0fC0Lf9HiC65x6S6XhW_rRClIb1hjq58HD1XHSRr2FRha1NNLc0m46tRLMvz5-SlL2Ifmh9r6CZfBmzI1THL4AE27gkLB50h_Kw_J9IXRR9AruFUzc2vNL7cg2jAtf4X0VPSCXrC7znXIjk-sN1MiSxf5JJR4YxlmMxpinBstjh8mQXEQF0Rc54bSXW_9kncqWmbwUn36_SkuhBM5cjCHrMJDL4K80wHO6L6pHxv0t5mTnbDPYf0HuFV4gZ6_bQ");'
+                ></div>
+                <h2 class="text-[#181311] text-base font-bold leading-tight">Neapolitan Pizza</h2>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e6dedb] bg-white p-4 items-center">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCn-AHctrtD6SLYjfKrNESCC44rEkxv284gFqwJYeVEBHKkHo4YWf_OfWEj5FnaXJa1Au-27BTlnhMFY9cLh8RjKU3pjY44ZCNprve_B1qvOb2eG78No_GU28Wn6QyBxjvQvN6I_13CQs7GIXujTYIMW0lTenZszdXEgsTDYSj0ZX4Nh-KuNJ0npfXsmff2WCHuyUlBO_lh_-mc6FEl75JjOhzNW626cD2h3fFf2Hyor_KFgjyA_c5S9-kFe4CW67a1RDFDuNRBcs");'
+                ></div>
+                <h2 class="text-[#181311] text-base font-bold leading-tight">Classic Tiramisu</h2>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e6dedb] bg-white p-4 items-center">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAjGZkbmDoRL07TysjtyBoR2qN-gkLp2pM2w6O5tNlB3hng6RGPapZoFUnxBKADYHECKdU2anLKeC-imBPQgWHC0VU8Qy7onB6OhxqgtsLAV7oxiaiMVKwA2UQdL_How52IzwTGQ2JId3kzQjjL5X7zhfCwIH3AaCD3etLnzGUPMp_FyKglzx8j0QhIXvbQkgy4fpMtMul6mKiP_6GcUecpScCR-O8mf9PG7auxM7bRQaF6tp5XQEKQG2Ng3Fe_p1O82D-ZfosNa5Y");'
+                ></div>
+                <h2 class="text-[#181311] text-base font-bold leading-tight">Creamy Risotto</h2>
+              </div>
+            </div>
+            <h2 class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Meet Your Instructor</h2>
+            <div class="flex p-4 @container">
+              <div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+                <div class="flex gap-4">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRmVn9jLDBI5oegvtUdE1_eGB7tEByitOddxrA8uCqOi1ZIKe8vftufWqJeB97sTPP4PY64L0qfwcCGTG5nnLfru3u4QKaoF2f1QfaF46LIfsnt_6i6XmiCxZK5j06eiyw-Bc_KKyzrmU3WLeeBaMoNgV4oGLWpTv92JBaaK8fh3Fg3pY3beBuWDH5AYu_Ns28P0yQijnDTpzQF-97z0uV7FmYj_JntHdXEYJpwKTi0NvQwgn8CsFZRPFo5jslMSGBnFi7JmfTH78");'
+                  ></div>
+                  <div class="flex flex-col justify-center">
+                    <p class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em]">Chef Isabella Rossi</p>
+                    <p class="text-[#8a6e60] text-base font-normal leading-normal">
+                      With over 20 years of experience in Italian cuisine, Chef Isabella Rossi brings a wealth of knowledge and passion to her classes. She has worked in top
+                      restaurants across Italy and is known for her engaging teaching style and dedication to preserving culinary traditions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#181311] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Pricing</h2>
+
+            <p class="text-[#181311] text-base font-normal leading-normal pb-3 pt-1 px-4">Price: $299 (includes all ingredients and materials)</p>
+            <div class="flex px-4 py-3 justify-start">
+              <a
+                href="{% url 'index' %}#contact"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#f15912] text-white text-base font-bold leading-normal tracking-[0.015em]"
+              >
+                Enroll Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
