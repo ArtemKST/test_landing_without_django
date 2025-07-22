@@ -15,7 +15,7 @@
 
     <style>
       /* базовый контейнер */
-      .container {
+      .layout-content-container {
         margin: 0 auto;
         padding: 0 40px;
         max-width: 960px;
@@ -23,13 +23,13 @@
   
       /* ===== планшеты ===== */
       @media (max-width: 1024px) {
-        .container {
+        .layout-content-container {
           padding: 0 20px;
         }
   
       /* ===== телефоны ===== */
       @media (max-width: 640px) {
-        .container {
+        .layout-content-container {
           padding: 0 10px;
         }
         header .flex {
@@ -69,7 +69,7 @@
           </div>
         </header>
         <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container container flex flex-col max-w-[960px] flex-1">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div class="@container">
               <div class="@[480px]:px-4 @[480px]:py-3">
                 <div
